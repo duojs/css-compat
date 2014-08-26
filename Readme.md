@@ -14,7 +14,7 @@ $ npm install duo-css-compat
 API:
 
 ```js
-var compat = require('css-compat');
+var compat = require('duo-css-compat');
 
 Duo(root)
   .entry('index.css')
