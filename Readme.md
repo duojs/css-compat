@@ -1,9 +1,41 @@
 
-# css-compatibility
+# css-compat
 
-  Duo plugin to support the component styles array
+  Duo plugin to support the component "styles" array for backwards compatibility.
 
-## License 
+## Installation
+
+```bash
+$ npm install duo-css-compat
+```
+
+## Usage
+
+API:
+
+```js
+var compat = require('css-compat');
+
+Duo(root)
+  .entry('index.css')
+  .use(compat())
+  .run(fn);
+```
+
+CLI:
+
+```
+$ duo --use duo-css-compat
+```
+
+## Test
+
+```bash
+$ npm install
+$ make test
+```
+
+## License
 
 (The MIT License)
 
