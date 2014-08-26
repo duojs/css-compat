@@ -1,24 +1,19 @@
 {
-  "name": "css-compatibility",
+  "name": "duo-css-compat",
   "version": "0.0.1",
   "description": "Duo plugin to support the component styles array",
   "keywords": [],
   "author": "Matthew Mueller <mattmuelle@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/MatthewMueller/css-compatibility.git"
+    "url": "git://github.com/MatthewMueller/duo-css-compat.git"
   },
-  "dependencies": {
-    "duo-main": "0.0.3",
-    "duo-package": "^0.4.2",
-    "file-deps": "0.0.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "co-mocha": "^1.0.0",
     "duo": "^0.8.1",
     "gnode": "0.0.8",
-    "mocha": "^1.21.4",
-    "should": "*"
+    "mocha": "^1.21.4"
   },
   "main": "index"
 }
