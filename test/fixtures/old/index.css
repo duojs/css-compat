@@ -1,0 +1,13 @@
+/**
+ * Module dependencies
+ */
+
+@import 'logo/interakt';
+
+/**
+ * Styles
+ */
+
+body {
+  background: teal;
+}

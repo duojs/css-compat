@@ -1,0 +1,62 @@
+/**
+ * Module dependencies
+ */
+
+
+/**
+ * Logo.
+ *
+ * *.logo[data-logo][data-color]
+ *   *
+ */
+
+.logo {
+  margin: 0; /* reset */
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; /* not baseline, so we align up _and_ down */
+  height: 1em; /* keep height constant regardless of innards */
+}
+
+.logo > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-indent: -9999px; /* image replacement */
+  direction: ltr; /* make text-indent play nice */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+/**
+ * Rocket Fuel logo.
+ */
+
+.logo[data-logo="Rocket Fuel"] {
+  width: 0;
+}
+
+.logo[data-logo="Rocket Fuel"] > * {
+  background-image: url(components/logo-rocket-fuel@0.2.0/images/logo.svg);
+  margin: 0 0 0 0;
+}
+
+.logo[data-logo="Rocket Fuel"][data-color="black"] > * {
+  background-image: url(components/logo-rocket-fuel@0.2.0/images/logo-black.svg);
+}
+
+.logo[data-logo="Rocket Fuel"][data-color="white"] > * {
+  background-image: url(components/logo-rocket-fuel@0.2.0/images/logo-white.svg);
+}
+
+
+/**
+ * Styles
+ */
+
+body {
+  background: teal;
+}

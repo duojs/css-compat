@@ -1,0 +1,13 @@
+/**
+ * Module dependencies
+ */
+
+@import 'logo/rocket-fuel:index.css';
+
+/**
+ * Styles
+ */
+
+body {
+  background: teal;
+}

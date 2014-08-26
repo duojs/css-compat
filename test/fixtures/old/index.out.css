@@ -1,0 +1,61 @@
+/**
+ * Module dependencies
+ */
+
+
+/**
+ * Logo.
+ *
+ * *.logo[data-logo][data-color]
+ *   *
+ */
+
+.logo {
+  margin: 0; /* reset */
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; /* not baseline, so we align up _and_ down */
+  height: 1em; /* keep height constant regardless of innards */
+}
+
+.logo > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-indent: -9999px; /* image replacement */
+  direction: ltr; /* make text-indent play nice */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+/**
+ * interakt logo.
+ */
+
+.logo[data-logo="interakt"] {
+  width: 4.219617966484308em;
+}
+
+.logo[data-logo="interakt"] > * {
+  background-image: url(components/logo-interakt@master/images/logo.svg);
+  margin: 0 0 0 0;
+}
+
+.logo[data-logo="interakt"][data-color="black"] > * {
+  background-image: url(components/logo-interakt@master/images/logo-black.svg);
+}
+
+.logo[data-logo="interakt"][data-color="white"] > * {
+  background-image: url(components/logo-interakt@master/images/logo-white.svg);
+}
+
+/**
+ * Styles
+ */
+
+body {
+  background: teal;
+}
