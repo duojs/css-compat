@@ -31,6 +31,7 @@
   background-size: contain;
 }
 
+
 /**
  * Rocket Fuel logo.
  */
@@ -51,6 +52,8 @@
 .logo[data-logo="Rocket Fuel"][data-color="white"] > * {
   background-image: url(components/logo-rocket-fuel@0.2.0/images/logo-white.svg);
 }
+
+
 
 /**
  * Styles

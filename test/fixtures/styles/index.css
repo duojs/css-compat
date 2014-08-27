@@ -1,0 +1,13 @@
+/**
+ * Module dependencies
+ */
+
+@import "yields/skeleton";
+
+/**
+ * Styles
+ */
+
+body {
+  background: teal;
+}

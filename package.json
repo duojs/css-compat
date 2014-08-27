@@ -8,12 +8,15 @@
     "type": "git",
     "url": "git://github.com/MatthewMueller/duo-css-compat.git"
   },
-  "dependencies": {},
   "devDependencies": {
     "co-mocha": "^1.0.0",
     "duo": "^0.8.1",
     "gnode": "0.0.8",
     "mocha": "^1.21.4"
   },
-  "main": "index"
+  "main": "index",
+  "dependencies": {
+    "duo-main": "0.0.3",
+    "duo-package": "^0.4.2"
+  }
 }
