@@ -2,6 +2,7 @@
  * Module Dependencies
  */
 
+var debug = require('debug')('duo-css-compat');
 var Package = require('duo-package');
 var fmt = require('util').format;
 var join = require('path').join;
@@ -42,6 +43,7 @@ function compat(opts) {
 
     // Add styles
     for (var i = 0, style; style = styles[i++];) {
+      debug('adding "style": @import "%s";', path);
       file.src = fmt('%s\n@import "/%s";', file.src, style);
     }
 
@@ -59,6 +61,7 @@ function compat(opts) {
 
     // Add imports
     for (var i = 0, path; path = paths[i++];) {
+      debug('adding "dependency": @import "%s";', path);
       file.src = fmt('@import "%s";\n%s', path, file.src);
     }
   }
@@ -74,6 +77,7 @@ function compat(opts) {
 
 function fetch(pkgs) {
   return pkgs.map(function(pkg) {
+    debug('%s: fetching', pkg.slug());
     return pkg.fetch();
   });
 }
@@ -103,7 +107,7 @@ function filter(pkgs) {
 
 function json(path) {
   try {
-    return require(path);
+    return JSON.parse(JSON.stringify(require(path)));
   } catch (e) {
     return {};
   }
