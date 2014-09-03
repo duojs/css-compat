@@ -1,7 +1,13 @@
 
 # css-compat
 
-  Duo plugin to support the component "styles" array for backwards compatibility.
+  Duo plugin to support the component "styles" array and dependencies with CSS assets for backwards compatibility.
+
+  This will only trigger on `css` files and if the component you are downloading has a `styles: [ ... ]` array.
+
+## Future Components
+
+  This plugin does slow Duo down a bit, so I urge you to write future components that use the new `@import` syntax. This has the added benefit of only requiring what you actually use and ensuring proper ordering of CSS assets.
 
 ## Installation
 
