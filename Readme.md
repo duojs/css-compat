@@ -7,7 +7,7 @@
 
 ## Future Components
 
-  This plugin does slow Duo down a bit, so I urge you to write future components that use the new `@import` syntax. This has the added benefit of only requiring what you actually use and ensuring proper ordering of CSS assets.
+  This plugin does slow Duo down a bit when it triggers, so I urge you to write future CSS components that use the new `@import` syntax. This has the added benefit of only requiring what you actually use and ensuring proper ordering of CSS assets.
 
 ## Installation
 
