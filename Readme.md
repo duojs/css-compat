@@ -1,6 +1,8 @@
 
 # css-compat
 
+  ** This plugin is included in core duo **
+
   Duo plugin to support the component "styles" array and dependencies with CSS assets for backwards compatibility.
 
   This will only trigger on `css` files and if the component you are downloading has a `styles: [ ... ]` array.
