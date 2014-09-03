@@ -35,7 +35,7 @@ describe('duo', function() {
     assert(css == read('both/index.out.css'));
   })
 
-  it('should support loading style', function *() {
+  it('should support loading only styles', function *() {
     var css = yield duo('styles').run();
     assert(css == read('styles/index.out.css'));
   })
