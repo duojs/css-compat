@@ -16,6 +16,8 @@
   },
   "main": "index",
   "dependencies": {
+    "debug": "^2.0.0",
+    "duo": "^0.8.2",
     "duo-main": "0.0.3",
     "duo-package": "^0.4.2"
   }
