@@ -3,6 +3,7 @@
  */
 
 var readfile = require('fs').readFileSync;
+var exists = require('fs').existsSync;
 var join = require('path').join;
 var assert = require('assert');
 var compat = require('..');
@@ -22,6 +23,7 @@ describe('duo', function() {
 
   it('should load css deps', function *() {
     var css = yield duo('old').run();
+
     assert(css == read('old/index.out.css'));
   })
 
@@ -44,6 +46,18 @@ describe('duo', function() {
     var css = yield duo('hybrid').run();
     assert(css == read('hybrid/index.out.css'));
   })
+
+  it('should CSS deps that dont have a styles or main', function *() {
+    var css = yield duo('suit-theme').run();
+    var obj = require(path('suit-theme/components/duo.json'));
+
+    // simple dep check
+    // TODO: improve
+    var fullpath = obj['index.css'].deps['suitcss/theme'];
+    assert(obj[fullpath].deps['suitcss-suit@0.5.0:index.css'] == 'components/suitcss-suit@0.5.0/index.css');
+    assert(obj[fullpath].deps['/lib/theme-map.css'] == 'components/suitcss-theme@0.1.0/lib/theme-map.css');
+  })
+
 });
 
 /**

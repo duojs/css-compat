@@ -7,6 +7,7 @@ var Package = require('duo-package');
 var fmt = require('util').format;
 var join = require('path').join;
 var main = require('duo-main');
+var fs = require('co-fs');
 var keys = Object.keys;
 
 /**
@@ -77,7 +78,7 @@ function compat(opts) {
     yield fetch(file.id, pkgs);
 
     // filter out non-CSS packages
-    var paths = filter(pkgs);
+    var paths = yield filter(pkgs);
 
     // Add imports
     for (var i = 0, path; path = paths[i++];) {
@@ -111,16 +112,32 @@ function fetch(rel, pkgs) {
  * @api private
  */
 
-function filter(pkgs) {
-  return pkgs
+function *filter(pkgs) {
+  var slugs = {};
+
+  // get the css path
+  var paths = pkgs
     .map(function(pkg) {
       var obj = json(pkg.path('component.json'));
-      var entry = main(obj, 'css');
-      return entry && fmt('%s:%s', pkg.slug(), entry);
+      var entry = main(obj, 'css') || 'index.css';
+      var path = pkg.path(main(obj, 'css') || 'index.css');
+      slugs[path] = fmt('%s:%s', pkg.slug(), entry);
+      return stat(path);
     })
-    .filter(function(paths) {
-      return paths;
+
+  // check existence in parallel
+  paths = yield paths;
+
+  // filter out non-css packages
+  // and remap to slug:entry
+  return paths
+    .filter(function(path) {
+      return path
     })
+    .map(function(path) {
+      path = slugs[path];
+      return path;
+    });
 }
 
 /**
@@ -136,5 +153,22 @@ function json(path) {
     return JSON.parse(JSON.stringify(require(path)));
   } catch (e) {
     return {};
+  }
+}
+
+/**
+ * Stat
+ *
+ * @param {String} path
+ * @return {Boolean}
+ * @api private
+ */
+
+function *stat(path) {
+  try {
+    yield fs.stat(path);
+    return path;
+  } catch (e) {
+    return false;
   }
 }

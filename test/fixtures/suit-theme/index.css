@@ -1,0 +1,13 @@
+/**
+ * Module dependencies
+ */
+
+@import "suitcss/theme";
+
+/**
+ * Styles
+ */
+
+.suit-theme {
+  background: teal;
+}
