@@ -1,4 +1,10 @@
 
+0.0.3 / 2014-09-02
+==================
+
+ * check for existence and include index.css if there is no main or styles
+ * add debug dep, update makefile
+
 0.0.2 / 2014-09-02
 ==================
 
