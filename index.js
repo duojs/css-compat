@@ -11,10 +11,10 @@ var fs = require('co-fs');
 var keys = Object.keys;
 
 /**
- * Export `compat`
+ * Export `plugin`
  */
 
-module.exports = compat;
+module.exports = plugin;
 
 /**
  * Add "styles" compatibility
@@ -24,11 +24,11 @@ module.exports = compat;
  * @api public
  */
 
-function compat(opts) {
+function plugin(opts) {
   opts = opts || {};
   var visited = {};
 
-  return function *component_compat(file, entry) {
+  return function *compatibility(file, entry) {
     if ('css' != entry.type) return;
     if ('css' != file.type) return;
 
@@ -85,7 +85,7 @@ function compat(opts) {
       debug('%s: adding "%s" dependency', file.id, path);
       file.src = fmt('@import "%s";\n%s', path, file.src);
     }
-  }
+  };
 }
 
 /**
@@ -123,7 +123,7 @@ function *filter(pkgs) {
       var path = pkg.path(main(obj, 'css') || 'index.css');
       slugs[path] = fmt('%s:%s', pkg.slug(), entry);
       return stat(path);
-    })
+    });
 
   // check existence in parallel
   paths = yield paths;
@@ -132,7 +132,7 @@ function *filter(pkgs) {
   // and remap to slug:entry
   return paths
     .filter(function(path) {
-      return path
+      return path;
     })
     .map(function(path) {
       path = slugs[path];
