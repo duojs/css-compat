@@ -6,7 +6,7 @@
   "author": "Matthew Mueller <mattmuelle@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/MatthewMueller/duo-css-compat.git"
+    "url": "git://github.com/duojs/css-compat.git"
   },
   "devDependencies": {
     "co-mocha": "^1.0.0",
