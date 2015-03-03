@@ -1,4 +1,10 @@
 
+0.0.5 / 2015-03-03
+==================
+
+  * package: Update gnode to 0.1.1
+  * index: Change `component_compat` -> `compatibility`
+
 0.0.4 / 2014-10-27
 ==================
 
