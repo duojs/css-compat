@@ -12,8 +12,9 @@
     "duo-package": "^0.9.0"
   },
   "devDependencies": {
+    "bluebird": "^2.9.30",
     "chai": "^3.0.0",
-    "co-mocha": "^1.0.0",
+    "co-mocha": "~1.0.3",
     "duo": "^0.9.7",
     "gnode": "^0.1.1",
     "mocha": "^2.2.5"

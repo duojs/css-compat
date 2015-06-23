@@ -1,15 +1,16 @@
 
+NODE ?= node
+NODE_FLAGS ?= $(shell $(NODE) --v8-options | grep generators | cut -d ' ' -f 3)
+
+BIN := ./node_modules/.bin
+MOCHA ?= $(BIN)/_mocha
+
 test: clean node_modules
-	@./node_modules/.bin/mocha \
-		--harmony-generators \
-		--require co-mocha \
-		--require gnode \
-		--reporter spec \
-		--timeout 10s
+	@$(NODE) $(NODE_FLAGS) $(MOCHA)
 
 node_modules: package.json
 	@npm install
-	@touch node_modules
+	@touch $@
 
 clean:
 	@rm -rf test/fixtures/*/{components,build}
