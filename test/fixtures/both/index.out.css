@@ -31,25 +31,26 @@
   background-size: contain;
 }
 
+
 /**
  * Rocket Fuel logo.
  */
 
 .logo[data-logo="Rocket Fuel"] {
-  width: 0;
+  width: 6em;
 }
 
 .logo[data-logo="Rocket Fuel"] > * {
-  background-image: url(components/logo-rocket-fuel@0.2.0/images/logo.svg);
+  background-image: url(components/logo-rocket-fuel@0.2.1/images/logo.svg);
   margin: 0 0 0 0;
 }
 
 .logo[data-logo="Rocket Fuel"][data-color="black"] > * {
-  background-image: url(components/logo-rocket-fuel@0.2.0/images/logo-black.svg);
+  background-image: url(components/logo-rocket-fuel@0.2.1/images/logo-black.svg);
 }
 
 .logo[data-logo="Rocket Fuel"][data-color="white"] > * {
-  background-image: url(components/logo-rocket-fuel@0.2.0/images/logo-white.svg);
+  background-image: url(components/logo-rocket-fuel@0.2.1/images/logo-white.svg);
 }
 
 

@@ -9,6 +9,8 @@ var assert = require('assert');
 var compat = require('..');
 var Duo = require('duo');
 
+var write = require('fs').writeFileSync;
+
 /**
  * Fixtures
  */
@@ -23,28 +25,27 @@ describe('duo', function() {
 
   it('should load css deps', function *() {
     var css = yield duo('old').run();
-
-    assert(css == read('old/index.out.css'));
+    assert.equal(css, read('old/index.out.css'));
   })
 
   it('should ignore duo-compatible syntax', function *() {
     var css = yield duo('new').run();
-    assert(css == read('new/index.out.css'));
+    assert.equal(css, read('new/index.out.css'));
   })
 
-  it('should handle the in between state of logo/rocket-fuel@0.2.0', function *() {
+  it('should handle the in between state of logo/rocket-fuel@0.2.1', function *() {
     var css = yield duo('both').run();
-    assert(css == read('both/index.out.css'));
+    assert.equal(css, read('both/index.out.css'));
   })
 
   it('should support loading only styles', function *() {
     var css = yield duo('styles').run();
-    assert(css == read('styles/index.out.css'));
+    assert.equal(css, read('styles/index.out.css'));
   })
 
   it('should work with hybrids', function *() {
     var css = yield duo('hybrid').run();
-    assert(css == read('hybrid/index.out.css'));
+    assert.equal(css, read('hybrid/index.out.css'));
   })
 
   it('should CSS deps that dont have a styles or main', function *() {
