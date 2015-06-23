@@ -9,8 +9,6 @@ var assert = require('assert');
 var compat = require('..');
 var Duo = require('duo');
 
-var write = require('fs').writeFileSync;
-
 /**
  * Fixtures
  */
