@@ -25,7 +25,8 @@ module.exports = plugin;
  */
 
 function plugin(opts) {
-  opts = opts || {};
+  if (!opts) opts = {};
+  var token = opts.token;
   var visited = {};
 
   return function *compatibility(file, entry) {
@@ -71,7 +72,7 @@ function plugin(opts) {
     // dependencies: { ... }
     // create packages for each dependency
     for (var pkg in deps) {
-      pkgs[pkgs.length] = Package(pkg, deps[pkg]).directory(dir);
+      pkgs[pkgs.length] = new Package(pkg, deps[pkg]).token(token).directory(dir);
     }
 
     // fetch the packages
