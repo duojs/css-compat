@@ -1,6 +1,6 @@
 {
   "name": "duo-css-compat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Duo plugin to support the component styles array",
   "keywords": [],
   "author": "Matthew Mueller <mattmuelle@gmail.com>",
