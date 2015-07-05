@@ -30,8 +30,7 @@ function plugin(opts) {
   var visited = {};
 
   return function *compatibility(file, entry) {
-    if ('css' != entry.type) return;
-    if ('css' != file.type) return;
+    if (file.type !== 'css' || entry.type !== 'css') return;
 
     var manifest = join(file.root, 'component.json');
 
@@ -49,7 +48,7 @@ function plugin(opts) {
     if (!styles || !styles.length) return;
 
     // This will get picked up already in duo
-    if (1 == styles.length && !keys(deps)) return;
+    if (styles.length === 1 && !keys(deps)) return;
 
     // styles: [ ... ]
     var entrypoint = main(obj, 'css');
@@ -57,10 +56,10 @@ function plugin(opts) {
     if (~i) styles.splice(i, 1);
 
     // Add the additional styles in, if there are any
-    for (var i = 0, style; style = styles[i++];) {
+    styles.forEach(function (style) {
       debug('%s: adding "%s" style', file.id, style);
       file.src = fmt('%s\n@import "/%s";', file.src, style);
-    }
+    });
 
     // No need to continue if we don't have
     // any additional dependencies
@@ -82,10 +81,10 @@ function plugin(opts) {
     var paths = yield filter(pkgs);
 
     // Add imports
-    for (var i = 0, path; path = paths[i++];) {
+    paths.forEach(function (path) {
       debug('%s: adding "%s" dependency', file.id, path);
       file.src = fmt('@import "%s";\n%s', path, file.src);
-    }
+    });
   };
 }
 
