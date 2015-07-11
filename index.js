@@ -26,12 +26,14 @@ module.exports = plugin;
 
 function plugin(opts) {
   if (!opts) opts = {};
-  var token = opts.token;
   var visited = {};
 
   return function *compatibility(file, entry) {
     if (file.type !== 'css' || entry.type !== 'css') return;
 
+    var duo = file.duo;
+    var token = duo.token();
+    var cache = yield duo.getCache();
     var manifest = join(file.root, 'component.json');
 
     // only visit a manifest once
@@ -71,7 +73,10 @@ function plugin(opts) {
     // dependencies: { ... }
     // create packages for each dependency
     for (var pkg in deps) {
-      pkgs[pkgs.length] = new Package(pkg, deps[pkg]).token(token).directory(dir);
+      pkgs[pkgs.length] = new Package(pkg, deps[pkg])
+        .cache(cache)
+        .token(token)
+        .directory(dir);
     }
 
     // fetch the packages
