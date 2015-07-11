@@ -6,16 +6,17 @@
   "author": "Matthew Mueller <mattmuelle@gmail.com>",
   "repository": "duojs/css-compat",
   "dependencies": {
-    "debug": "^2.0.0",
     "co-fs": "^1.2.0",
+    "debug": "^2.0.0",
     "duo-main": "0.0.3",
-    "duo-package": "^0.9.0"
+    "duo-package": "^0.10.0",
+    "node-netrc": "0.0.1"
   },
   "devDependencies": {
     "bluebird": "^2.9.30",
     "chai": "^3.0.0",
     "co-mocha": "~1.0.3",
-    "duo": "^0.9.7",
+    "duo": "^0.13.2",
     "eslint": "^0.24.0",
     "eslint-config-duo": "0.0.1",
     "gnode": "^0.1.1",
