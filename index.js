@@ -24,8 +24,7 @@ module.exports = plugin;
  * @api public
  */
 
-function plugin(opts) {
-  if (!opts) opts = {};
+function plugin() {
   var visited = {};
 
   return function *compatibility(file, entry) {
