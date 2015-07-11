@@ -1,4 +1,10 @@
 
+0.3.0 / 2015-07-11
+==================
+
+  * updating package internally, adding cache support
+  * eslint
+
 0.2.0 / 2015-06-24
 ==================
 
