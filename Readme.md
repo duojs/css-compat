@@ -1,46 +1,41 @@
 
 # css-compat
 
-  **This plugin is included in core Duo**
+[![NPM version][https://img.shields.io/npm/v/duo-css-compat.svg]][https://npmjs.org/package/duo-css-compat]
+[![build status][https://img.shields.io/travis/duojs/css-compat.svg]][https://travis-ci.org/duojs/css-compat]
 
-  Duo plugin to support the component "styles" array and dependencies with CSS assets for backwards compatibility.
+**This plugin is included in core Duo**
 
-  This will only trigger on `css` files and if the component you are downloading has a `styles: [...]` array.
+Duo plugin to support the component `styles` array and dependencies with CSS
+assets for backwards compatibility.
+
+This will only trigger on `css` files and if the component you are downloading
+has a `styles: [...]` array.
 
 ## Future Components
 
-  This plugin does slow Duo down a bit when it triggers, so I urge you to write future CSS components that use the new `@import` syntax. This has the added benefit of only requiring what you actually use and ensuring proper ordering of CSS assets.
-
-## Installation
-
-```bash
-$ npm install duo-css-compat
-```
+This plugin does slow Duo down a bit when it triggers, so I urge you to write
+future CSS components that use the new `@import` syntax. This has the added
+benefit of only requiring what you actually use and ensuring proper ordering
+of CSS assets.
 
 ## Usage
 
-API:
+### API
 
 ```js
 var compat = require('duo-css-compat');
 
 Duo(root)
-  .entry('index.css')
   .use(compat())
+  .entry('index.css')
   .run(fn);
 ```
 
-CLI:
+### CLI
 
-```
+```sh
 $ duo --use duo-css-compat
-```
-
-## Test
-
-```bash
-$ npm install
-$ make test
 ```
 
 ## License
