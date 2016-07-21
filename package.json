@@ -8,7 +8,7 @@
   "dependencies": {
     "co-fs": "^1.2.0",
     "debug": "^2.0.0",
-    "duo-main": "0.0.3",
+    "duo-main": "0.0.6",
     "duo-package": "^0.10.0",
     "node-netrc": "0.0.1"
   },
