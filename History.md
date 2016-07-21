@@ -1,4 +1,10 @@
 
+0.3.1 / 2016-07-21
+==================
+
+  * blindly updating duo-main
+  * package: Add "license" field
+
 0.3.0 / 2015-07-11
 ==================
 
